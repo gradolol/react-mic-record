@@ -1,6 +1,6 @@
 {
-  "name": "react-mic-record",
-  "version": "1.0.7",
+  "name": "react-mic-improved",
+  "version": "1.0.1",
   "description": "Record audio from your microphone",
   "main": "lib/index.js",
   "jsnext:main": "es/index.js",
@@ -20,7 +20,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/OpenSooq/react-mic-record"
+    "url": "https://github.com/gradolol/react-mic-record.git"
   },
   "scripts": {
     "build": "nwb build-react-component",
@@ -43,5 +43,9 @@
     "react-dom": "^16.2.0"
   },
   "author": "Amr Alshroof",
-  "license": "MIT"
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gradolol/react-mic-record/issues"
+  },
+  "homepage": "https://github.com/gradolol/react-mic-record#readme"
 }
