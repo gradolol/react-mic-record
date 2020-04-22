@@ -1,7 +1,6 @@
-const constraints = {audio: true, video: false}; // constraints - only audio needed
 
 export default class MicrophoneRecorder {
-    constructor(onStart, onStop, onData, options, audioContext) {
+    constructor(onStart, onStop, onData, options, audioContext, deviceId) {
         
         navigator.getUserMedia = (navigator.getUserMedia ||
             navigator.webkitGetUserMedia ||
@@ -17,6 +16,7 @@ export default class MicrophoneRecorder {
         this.onData = onData;
         this.chunks = [];
         this.startTime = null;
+        this.deviceId = deviceId
     }
     
     startRecording() {
@@ -44,7 +44,8 @@ export default class MicrophoneRecorder {
         } else {
             if (navigator.mediaDevices) {
                 console.log('getUserMedia supported.');
-                navigator.mediaDevices.getUserMedia(constraints).then(str => {
+                const constraints = { deviceId: { exact: this.deviceId } }; // constraints - only audio needed
+                navigator.mediaDevices.getUserMedia({audio: constraints}).then(str => {
                     
                     this.stream = str;
                     

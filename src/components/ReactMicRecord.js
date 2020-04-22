@@ -28,7 +28,7 @@ export default class ReactMicRecord extends React.Component {
     
     componentDidMount() {
         
-        const {onStop, onStart, onData, audioElem, audioBitsPerSecond, mimeType} = this.props;
+        const {onStop, onStart, onData, audioElem, audioBitsPerSecond, mimeType, deviceId} = this.props;
         const options = {audioBitsPerSecond, mimeType};
         this.canvasCtx = this.canvasRef.getContext("2d");
         
@@ -37,7 +37,7 @@ export default class ReactMicRecord extends React.Component {
         if (audioElem) {
             this.audioPlayer = new AudioPlayer(audioElem, this.audioContext);
         } else {
-            this.microphoneRecorder = new MicrophoneRecorder(onStart, onStop, onData, options, this.audioContext);
+            this.microphoneRecorder = new MicrophoneRecorder(onStart, onStop, onData, options, this.audioContext, deviceId);
         }
         
         this.visualize();
